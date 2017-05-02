@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void go(View view) {
         n=editText.getText().toString();
+        capacity=et2.getText().toString();
         Intent intent=new Intent(this,SecondActivity.class);
         intent.putExtra("number",n);
         intent.putExtra("capacity",capacity);

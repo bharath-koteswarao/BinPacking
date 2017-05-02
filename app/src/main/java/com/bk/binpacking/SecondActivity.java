@@ -30,7 +30,7 @@ public class SecondActivity extends AppCompatActivity {
             textInputLayouts[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
             et[i]=new EditText(this);
             et[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-            et[i].setHint("weight"+i+" : ");
+            et[i].setHint("weight "+i+" : ");
             et[i].setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED);
             textInputLayouts[i].addView(et[i]);
             container.addView(textInputLayouts[i]);
@@ -39,7 +39,13 @@ public class SecondActivity extends AppCompatActivity {
 
     public void createBins(View view) {
         for (int i=0;i<n;i++){
+            if (!et[i].getText().toString().equals("")){
             inputs[i]=Integer.parseInt(et[i].getText().toString());
+            }
+            else {
+                inputs[i]=0;
+                et[i].setText("0");
+            }
         }
     }
 }
