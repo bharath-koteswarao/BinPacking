@@ -30,8 +30,8 @@ public class SecondActivity extends AppCompatActivity {
             textInputLayouts[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
             et[i]=new EditText(this);
             et[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-            et[i].setHint("weight "+i+" : ");
-            et[i].setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED);
+            et[i].setHint("weight "+(i+1)+" : ");
+            et[i].setInputType(InputType.TYPE_CLASS_NUMBER);
             textInputLayouts[i].addView(et[i]);
             container.addView(textInputLayouts[i]);
         }

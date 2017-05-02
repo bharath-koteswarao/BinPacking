@@ -1,4 +1,4 @@
-package com.bk.binpacking;
+package com.bk.binpacking.RecyclerView;
 
 import java.util.ArrayList;
 
