@@ -1,5 +1,6 @@
 package com.bk.binpacking;
 
+import android.content.Intent;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,5 +48,9 @@ public class SecondActivity extends AppCompatActivity {
                 et[i].setText("0");
             }
         }
+        Intent i=new Intent(this,RecView.class);
+        i.putExtra("inputArray",inputs);
+        i.putExtra("capacity",capacity);
+        startActivity(i);
     }
 }

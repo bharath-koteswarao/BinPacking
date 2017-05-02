@@ -1,5 +1,7 @@
 package com.bk.binpacking.RecyclerView;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,6 +36,11 @@ public class Data {
         }
     }
     public List getList(){
+        for (Bin bin:bins){
+            for (int i:bin.container){
+                Log.d("See this",i+"");
+            }
+        }
         return bins;
     }
 }

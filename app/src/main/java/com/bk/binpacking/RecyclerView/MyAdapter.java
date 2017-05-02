@@ -19,8 +19,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
     public List<Bin> listdata;
     LayoutInflater inflater;
     Context context;
-    public MyAdapter(Context context){
+    public MyAdapter(Context context,List<Bin> listdata){
         this.context=context;
+        this.listdata=listdata;
         inflater=LayoutInflater.from(context);
     }
     @Override
@@ -42,7 +43,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.Holder> {
 
     @Override
     public int getItemCount() {
-        return 0;
+        return listdata.size();
     }
 
     class Holder extends RecyclerView.ViewHolder
