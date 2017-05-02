@@ -1,26 +1,45 @@
 package com.bk.binpacking;
 
-import android.support.v7.app.ActionBar;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
+import android.text.InputType;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 public class SecondActivity extends AppCompatActivity {
     LinearLayout container;
+    TextInputLayout[] textInputLayouts;
+    EditText[] et;
+    int[] inputs;
+    int n,capacity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
         container=(LinearLayout)findViewById(R.id.container);
-        int n=Integer.parseInt(getIntent().getExtras().getString("number"));
-        EditText editText=new EditText(this);
-        editText.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-        editText.setHint("hello");
-        editText.setTag("et1");
-        LinearLayout.LayoutParams params=(LinearLayout.LayoutParams)editText.getLayoutParams();
-        params.setMargins(0,10,0,0);
-        container.addView(editText);
+        n = Integer.parseInt(getIntent().getExtras().getString("number"));
+        capacity=Integer.parseInt(getIntent().getExtras().getString("capacity"));
+        inputs=new int[n];
+        textInputLayouts =new TextInputLayout[n];
+        et=new EditText[n];
+        for (int i=0;i<n;i++){
+            textInputLayouts[i]=new TextInputLayout(this);
+            textInputLayouts[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            et[i]=new EditText(this);
+            et[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+            et[i].setHint("weight"+i+" : ");
+            et[i].setInputType(InputType.TYPE_NUMBER_FLAG_SIGNED);
+            textInputLayouts[i].addView(et[i]);
+            container.addView(textInputLayouts[i]);
+        }
+    }
+
+    public void createBins(View view) {
+        for (int i=0;i<n;i++){
+            inputs[i]=Integer.parseInt(et[i].getText().toString());
+        }
     }
 }
